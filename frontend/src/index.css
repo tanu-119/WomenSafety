@@ -1,0 +1,568 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active hr {
+  @apply block;
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+/* Global Reset */
+body,
+html {
+  /*overflow: hidden;  Hides both horizontal and vertical scrollbars */
+  height: 100%;
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9fafb; /* Light gray background */
+  /*margin-top: 8%;*/
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  margin-top: 400px;
+}
+
+.form-card {
+  background-color: #fff;
+  padding: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  max-width: 600px; /*Increased width for larger screens */
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #85bd76; /* Indigo color */
+  margin-bottom: 24px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 400px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  width: 100%; /* Ensure inputs take full width of the container */
+  box-sizing: border-box;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: #85bd76; /* Focus color */
+}
+
+.submit-btn {
+  padding: 14px;
+  background-color: #85bd76;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #85bd76;
+}
+
+.toggle-text {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.toggle-link {
+  color: #85bd76;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.toggle-link:hover {
+  color: #85bd76;
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .form-card {
+    padding: 20px;
+    width: 100%;
+    /*max-width: 100%; */
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .toggle-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    width: 100%;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-card {
+    width: 100%; /* Increased width for larger screens */
+    max-width: 900px; /*Allow form to expand further on larger screens */
+  }
+
+  .form-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .form-card {
+    width: 100%; /* Even wider form on very large screens */
+    max-width: 2000px; /*Increase max-width for large monitors */
+  }
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none; /* Removes default underline */
+  list-style: none;
+  font-family: "Arial", sans-serif;
+}
+
+/* Header Container */
+header {
+  position: fixed; /* Fix header at the top of the page */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full-width */
+  display: flex;
+  justify-content: space-between; /* Space between logo, nav, and button */
+  align-items: center;
+  padding: 30px;
+  background-color: #f8f9fa; /* Light gray */
+  border-bottom: 2px solid #ddd; /* Subtle border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Logo Section */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100px;
+}
+
+.logo h1 {
+  margin-left: 10px;
+  font-size: 24px;
+  color: #333; /* Dark gray text */
+  font-weight: bold;
+}
+
+/* Navigation Menu */
+nav ul {
+  display: flex;
+  gap: 40px; /* Space between links */
+  margin-left: 500px;
+}
+
+nav ul li {
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Styling the Link Tag */
+nav ul li a {
+  color: black; /* Default link color */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Emergency SOS Button */
+.sos-button button {
+  margin-left: 0px;
+  background-color: #ff5252; /* Red background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.map-container {
+  width: 500px;
+  height: 400px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sos-button button:hover {
+  background-color: #e53935; /* Darker red on hover */
+}
+
+/* Adjust Body Content to Avoid Overlap */
+body {
+  padding: 60px; /* Offset for fixed header */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .sos-button {
+    margin-top: 15px;
+  }
+}
+
+/* Landing Page Container */
+.landing-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stack title on top and content below */
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f9f9f9; /* Light background color */
+  padding: 10px;
+}
+
+/* Women Safety Text */
+.women-safety-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #85bd76; /* Green color for emphasis */
+  margin-bottom: 40px; /* Reduced space between the title and content */
+  margin-top: 20px;
+}
+
+/* Image and Content Section */
+.image-content-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px; /* Small gap between the image and content */
+  width: 100%; /* Ensure it takes full width */
+}
+
+/* Image Section */
+.image-container {
+  flex: 1; /* Take up 50% of the container */
+  padding-right: 20px;
+}
+
+.image-container img {
+  width: 100%; /* Image will take full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure image covers container space */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Content Section */
+.content-container {
+  flex: 1; /* Take up 50% of the container */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the left */
+  text-align: justify; /* Justify the text */
+}
+
+/* Landing Page Text */
+.content-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333; /* Dark text color for readability */
+  max-width: 800px; /* Restrict text width */
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+/* Login / SignUp Button */
+.login-signup-btn {
+  background-color: #85bd76; /* Red color for the button */
+  color: white;
+  font-size: 16px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+  /*align-self: left; Align button to the left */
+  transition: background-color 0.3s ease;
+}
+
+.login-signup-btn:hover {
+  background-color: #63855a; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 10px;
+  }
+
+  .image-content-container {
+    flex-direction: column; /* Stack the image and content on mobile */
+    gap: 10px; /* Reduce gap between image and content */
+  }
+
+  .image-container {
+    width: 100%; /* Make image take full width on mobile */
+  }
+
+  .content-container {
+    width: 100%; /* Content takes full width on mobile */
+  }
+
+  .content-container p {
+    font-size: 16px; /* Smaller font size on mobile */
+  }
+
+  .login-signup-btn {
+    width: 100%; /* Make button take full width on mobile */
+  }
+}
+
+/*******************EmergencyContacts.jsx styles********************/
+/* General Container */
+.emergency-contacts {
+  width: 700px;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin-top: 100px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Error and Loading Messages */
+.error-message {
+  color: #ff0000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.loading-message {
+  font-style: italic;
+  color: #555;
+}
+
+/* Add Contact Button */
+.add-contact-btn {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-contact-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add Contact Form */
+.add-contact-form {
+  margin: 20px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-contact-form label {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  margin-bottom: 20px; /* Add space between each label-input pair */
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.add-contact-form input {
+  margin-top: 5px; /* Space between label and input */
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-contact-form button {
+  padding: 10px 25px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-contact-form button[type="submit"] {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.add-contact-form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.add-contact-form button[type="button"] {
+  background-color: #a09c9d;
+  color: #fff;
+}
+
+.add-contact-form button[type="button"]:hover {
+  background-color: #c82333;
+}
+
+/* Contact List */
+.contacts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 20px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item span {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Delete Button */
+.delete-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
